@@ -58,7 +58,7 @@ class Home extends Component {
                       Some quick example text to build on the card title and
                       make up the bulk of the card's content.
                     </Card.Text>
-                    <Button variant="primary">Add to favorite list</Button>
+                    <Button variant="primary" onClick={()=>this.addFav(i)}>Add to favorite list</Button>
                   </Card.Body>
                 </Card>
               );

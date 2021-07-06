@@ -26,7 +26,15 @@ componentDidMount(){
 deleteFav =(i)=>{
     let strDrink = this.status.favDrink[i].strDrink;
 
-    let strDrinkThumb = 
+    const url = `${process.env.REAREACT_APP_SERVER}/deleteFavData`;
+
+    axios.get(url)
+    .then((response)=>{
+        this.setState({favDrink:response.data})
+    })
+    .catch((err)=>{
+        this.setState({err:err.message})
+    })
 }
 
 
@@ -37,7 +45,7 @@ render() {
           <p>{this.state.err}</p>
         ) : (
           <div>
-            {this.state.allData.map((item, i) => {
+            {this.state.favDrink.map((item, i) => {
               return (
                 <Card style={{ width: "18rem" }}>
                   <Card.Img variant="top" src="holder.js/100px180" />
